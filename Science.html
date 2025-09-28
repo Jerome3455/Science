@@ -1,1 +1,298 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Consumer Products Guide</title>
+ <style>
+   body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: whitesmoke;
+   }
+ 
+   header {
+     background-color: #50502C;
+     color: white;
+     padding: 20px;
+     text-align: center;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+   }
+ 
+   header h1 {
+     margin: 0;
+     font-size: 28px;
+   }
+ 
+   /* Horizontal buttons container */
+   .top-buttons {
+     display: flex;
+     justify-content: center;
+     gap: 15px;
+     margin: 20px 0;
+   }
+ 
+   .top-buttons button {
+     background-color: #3498db;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-weight: bold;
+     transition: background 0.3s, transform 0.2s;
+   }
+ 
+   .top-buttons button:hover {
+     background-color: #217dbb;
+     transform: translateY(-3px);
+   }
+ 
+   /* Product grid */
+   .container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin: 30px 20px;
+     gap: 25px;
+   }
+ 
+   .product {
+     width: 220px;
+     background: white;
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+     text-align: center;
+     overflow: hidden;
+     cursor: pointer;
+     transition: transform 0.2s, box-shadow 0.2s;
+   }
+ 
+   .product:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+   }
+ 
+   .product img {
+     width: 100%;
+     height: 180px;
+     object-fit: cover;
+   }
+ 
+   .product h3 {
+     margin: 10px 0;
+     background: #ecf0f1;
+     padding: 10px;
+     font-size: 16px;
+   }
+ 
+   /* Content sections */
+   .content, #factsBox, #membersBox {
+     display: none;
+     max-width: 900px;
+     margin: 30px auto;
+     padding: 25px;
+     background: white;
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+   }
+ 
+   .content h2, #factsBox h2, #membersBox h2 {
+     color: #2c3e50;
+     margin-top: 0;
+   }
+ 
+   ul {
+     padding-left: 20px;
+     line-height: 1.6;
+   }
+ 
+   .back-btn {
+     display: inline-block;
+     margin-top: 20px;
+     padding: 10px 20px;
+     background: #3498db;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-weight: bold;
+     transition: background 0.3s, transform 0.2s;
+   }
+ 
+   .back-btn:hover {
+     background: #217dbb;
+     transform: translateY(-2px);
+   }
+ 
+   /* Responsive for small screens */
+   @media (max-width: 600px) {
+     .top-buttons {
+       flex-direction: column;
+       align-items: center;
+     }
+     .container {
+       margin: 20px 10px;
+       gap: 15px;
+     }
+     .product {
+       width: 45%;
+     }
+   }
+ </style>
+</head>
+<body>
+ 
+ <header>
+   <h1>Consumer Products Guide</h1>
+ </header>
+ 
+ <!-- Horizontal buttons under header -->
+ <div class="top-buttons">
+   <button onclick="showHome()">Home</button>
+   <button onclick="showFacts()">Facts</button>
+   <button onclick="showMembers()">Members</button>
+ </div>
+ 
+ <!-- Home / Product Grid -->
+ <div class="container" id="home">
+   <div class="product" onclick="showContent('usage')">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_AJTh-xFMX_uIcZA548pnaahN03q-xYxnrWPEg1IX_l-uLjKGqA7LA999&s=10" alt="Laundry Detergent">
+     <h3>Laundry Detergent</h3>
+   </div>
+   <div class="product" onclick="showContent('disposal')">
+     <img src="https://cdn.shopify.com/s/files/1/0397/7887/7595/articles/depositphotos_36372223_l_600x.webp?v=1688366243" alt="Batteries">
+     <h3>Batteries</h3>
+   </div>
+   <div class="product" onclick="showContent('precautions')">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Clorox_Bleach_products.jpg" alt="Bleach">
+     <h3>Bleach</h3>
+   </div>
+   <div class="product" onclick="showContent('health')">
+     <img src="https://static.wixstatic.com/media/8f1abd_80bf432a005041b59c2a7fa1960ce71e~mv2.jpeg/v1/fill/w_1174,h_498,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8f1abd_80bf432a005041b59c2a7fa1960ce71e~mv2.jpeg" alt="Soft Drinks">
+     <h3>Soft Drinks</h3>
+   </div>
+   <div class="product" onclick="showContent('buying')">
+     <img src="https://www.vistaresidences.com.ph/assets/img/grocery-tipid-tips-in-the-philippines-_-condo-in-the-philippines_11zon-1676971814.jpg" alt="Groceries">
+     <h3>Groceries</h3>
+   </div>
+ </div>
+ 
+ <!-- Facts Section -->
+ <div id="factsBox">
+   <h2>Quick Facts About Consumer Products</h2>
+   <ul>
+     <li>Improper disposal of batteries can harm the environment.</li>
+     <li>Always read product labels before use.</li>
+     <li>Check expiration dates before buying food or medicine.</li>
+     <li>Recycle plastic bottles to reduce pollution.</li>
+     <li>Overusing cleaning chemicals may affect your health.</li>
+   </ul>
+   <button class="back-btn" onclick="showHome()">Back</button>
+ </div>
+ 
+ <!-- Members Section -->
+ <div id="membersBox">
+   <h2>Project Members & Purpose</h2>
+   <ul>
+     <li>Valenzuela</li>
+     <li>Intatano</li>
+     <li>Arguelles</li>
+     <li>Floress</li>
+     <li>Pucot</li>
+     <li>Esquivel</li>
+   </ul>
+   <p><strong>Purpose:</strong> This website educates people about consumer products, their proper usage, disposal, precautions, health risks, and buying tips.</p>
+   <p>We did this project to raise awareness and promote safe and responsible consumption.</p>
+   <button class="back-btn" onclick="showHome()">Back</button>
+ </div>
+ 
+ <!-- Product Content Sections -->
+ <div class="content" id="usage">
+   <h2>Proper Usage of Laundry Detergent</h2>
+   <p>•	Usage: Always measure the detergent according to the size of your load and the instructions on the package. Using too much can leave residue on clothes and may even damage your washing machine over time. Pour it carefully into the proper compartment of your washer or dissolve it in water first if needed. <br><br>
+	•	Disposal: When your detergent bottle is empty, rinse it and recycle it properly. Never pour leftover detergent down the drain in large amounts, as it can harm aquatic life.<br><br>
+	•	Precautions: Keep detergent out of reach of children. Avoid contact with eyes and prolonged skin exposure. If it accidentally spills, clean it immediately.<br><br>
+	•	Health Risks: Direct contact with undiluted detergent can cause skin irritation. Ingesting it is very dangerous, so always supervise children during laundry time.<br><br>
+	•	Buying Tips: Look for eco-friendly, phosphate-free detergents. Check reviews or labels for any harsh chemicals if you have sensitive skin.
+</p>
+   <button class="back-btn" onclick="showHome()">Back</button>
+ </div>
+ 
+ <div class="content" id="disposal">
+   <h2>Proper Disposal of Batteries</h2>
+   <p>
+• Usage: Always insert batteries following the correct positive (+) and negative (-) orientation. Mixing new and old batteries or different brands can reduce performance or even cause leaks.<br><br>
+• Disposal: Batteries contain heavy metals and chemicals, so never throw them in the regular trash. Take them to a local recycling center or a collection point for hazardous waste.<br><br>
+• Precautions: Store batteries in a cool, dry place. Keep them away from children and pets. Avoid exposing batteries to extreme heat or water.<br><br>
+• Health Risks: Leaking batteries release toxic chemicals that can irritate skin or damage surfaces. Swallowing a battery is life-threatening, especially for children.<br><br>
+• Buying Tips: Consider rechargeable batteries to save money and reduce environmental impact. Choose long-lasting batteries for devices you use often..</p>
+   <button class="back-btn" onclick="showHome()">Back</button>
+ </div>
+ 
+ <div class="content" id="precautions">
+   <h2>Precautions When Using Bleach</h2>
+   <p>	•	Usage: Dilute bleach properly according to the instructions before use. It’s excellent for disinfecting surfaces, cleaning mold, and whitening laundry. Never mix bleach with ammonia or other cleaners, as this can produce dangerous gases.<br><br>
+	•	Disposal: Do not pour large amounts of bleach directly into drains or the environment. Follow your local guidelines for hazardous waste disposal.<br><br>
+	•	Precautions: Always wear gloves and ensure good ventilation while using bleach. Avoid direct skin contact and keep it away from children and pets.<br><br>
+	•	Health Risks: Exposure can irritate your skin, eyes, and respiratory system. Ingesting bleach can be fatal. Use with caution.<br><br>
+	•	Buying Tips: Check labels to choose the right type for your intended use, such as household or laundry bleach. Avoid expired bottles as potency decreases over time.
+</p>
+   <button class="back-btn" onclick="showHome()">Back</button>
+ </div>
+ 
+ <div class="content" id="health">
+   <h2>Health Risks of Soft Drinks</h2>
+   <p>•	Usage: Soft drinks should be enjoyed in moderation. Keep them chilled for better taste, but avoid overconsumption. Limit intake for children and people with health issues like diabetes.<br><br>
+	•	Disposal: Always recycle cans and bottles to reduce pollution and conserve resources.<br><br>
+	•	Precautions: Monitor sugar intake, as excessive consumption may contribute to obesity and other health problems. Avoid giving soft drinks to young children frequently.<br><br>
+	•	Health Risks: Regular overconsumption can lead to obesity, diabetes, dental decay, and high blood pressure. Be cautious if you are trying to maintain a healthy diet.<br><br>
+	•	Buying Tips: Opt for sugar-free or low-sugar alternatives when possible. Check ingredient lists for caffeine and other additives.
+</p>
+   <button class="back-btn" onclick="showHome()">Back</button>
+ </div>
+ 
+ <div class="content" id="buying">
+   <h2>Tips for Buying Groceries</h2>
+   <p>• Usage: Use fresh produce promptly after buying to maximize nutritional value. Store items properly; for example, keep vegetables in the fridge and dry goods in airtight containers.<br><br>
+• Disposal: Compost food scraps whenever possible and recycle packaging. Avoid throwing spoiled items directly into the trash without considering environmental impact.<br><br>
+• Precautions: Wash fruits and vegetables thoroughly before eating. Check for bruises, mold, or any signs of spoilage.<br><br>
+• Health Risks: Eating spoiled or improperly stored food can lead to foodborne illnesses. Cross-contamination in the kitchen is another risk.<br><br>
+• Buying Tips: Always check expiration dates on perishable items and inspect packaging for damages. Prioritize fresh, locally sourced products when possible and avoid buying more than you can realistically consume.</p>
+   <button class="back-btn" onclick="showHome()">Back</button>
+ </div>
+ 
+ <script>
+   function showHome() {
+     document.getElementById('home').style.display = 'flex';
+     document.getElementById('factsBox').style.display = 'none';
+     document.getElementById('membersBox').style.display = 'none';
+     let sections = document.querySelectorAll('.content');
+     sections.forEach(section => section.style.display = 'none');
+   }
+   function showContent(id) {
+     document.getElementById('home').style.display = 'none';
+     document.getElementById('factsBox').style.display = 'none';
+     document.getElementById('membersBox').style.display = 'none';
+     document.getElementById(id).style.display = 'block';
+   }
+   function showFacts() {
+     document.getElementById('home').style.display = 'none';
+     document.getElementById('membersBox').style.display = 'none';
+     document.getElementById('factsBox').style.display = 'block';
+     let sections = document.querySelectorAll('.content');
+     sections.forEach(section => section.style.display = 'none');
+   }
+   function showMembers() {
+     document.getElementById('home').style.display = 'none';
+     document.getElementById('factsBox').style.display = 'none';
+     document.getElementById('membersBox').style.display = 'block';
+     let sections = document.querySelectorAll('.content');
+     sections.forEach(section => section.style.display = 'none');
+   }
+ </script>
+ 
+</body>
+</html>
+ 
